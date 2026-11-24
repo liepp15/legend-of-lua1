@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register — Legend of Lua</title>
+<meta name="description" content="Buat akun Legend of Lua dan mulai petualangan pixel RPG-mu.">
+<link rel="icon" href="assets/sprites/icon.png">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="portal page-enter auth-page register">
+<div class="auth-shell">
+  <aside class="auth-art" aria-label="Ilustrasi gua Legend of Lua">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/sprites/icon.png" alt=""></span>
+      <span class="brand-text"><b>LEGEND OF LUA</b><small>PIXEL ADVENTURE</small></span>
+    </a>
+    <div class="auth-quote">
+      <span class="eyebrow">Mulai legenda</span>
+      <h2>Tempa <span>pahlawanmu</span>.</h2>
+      <p>Satu akun membuka seluruh portal: dashboard, karakter, inventory, toko, leaderboard, dan game penuh.</p>
+      <ul class="auth-benefits">
+        <li><img src="assets/icons/check.svg" alt=""> Gratis, langsung dimainkan di browser</li>
+        <li><img src="assets/icons/check.svg" alt=""> Progres & emas tersimpan otomatis</li>
+        <li><img src="assets/icons/check.svg" alt=""> Setiap akun punya data terpisah</li>
+      </ul>
+    </div>
+    <div class="auth-art-foot">
+      <span>© <span data-year>2026</span> Legend of Lua</span>
+      <span class="tag">3 level · 4 karakter</span>
+    </div>
+    <div class="auth-float bat"><span class="sprite-wrap" style="--scale:3"><span class="sprite spr-bat"></span></span></div>
+    <div class="auth-float eye"><span class="sprite-wrap" style="--scale:3"><span class="sprite spr-eye"></span></span></div>
+    <div class="auth-float player"><span class="sprite-wrap" style="--scale:6"><span class="sprite spr-player spr-char5 anim-idle"></span></span></div>
+    <div class="auth-float pet"><span class="sprite-wrap" style="--scale:2"><span class="sprite spr-pet spr-pet-dragon"></span></span></div>
+    <i class="firefly" style="left:22%;top:40%;animation-delay:-1s"></i>
+    <i class="firefly" style="left:64%;top:28%;animation-delay:-2.5s"></i>
+    <i class="firefly" style="left:80%;top:64%;animation-delay:-4s"></i>
+  </aside>
+
+  <main class="auth-main">
+    <div class="auth-card">
+      <div class="auth-mobile-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"><img src="assets/sprites/icon.png" alt=""></span>
+          <span class="brand-text"><b>LEGEND OF LUA</b><small>PIXEL ADVENTURE</small></span>
+        </a>
+      </div>
+      <span class="eyebrow">Register</span>
+      <h1>Buat akun baru</h1>
+      <p class="sub">Isi data di bawah. Setelah berhasil, kamu akan diarahkan ke halaman login.</p>
+
+      <div id="registerAlert" class="auth-error-summary" aria-live="polite"></div>
+
+      <form id="registerForm" novalidate>
+        <div class="field">
+          <label for="username">Username</label>
+          <input class="input" id="username" name="username" type="text" autocomplete="username" maxlength="16" placeholder="3–16 huruf, angka, atau _" required>
+          <div class="field-error" id="usernameError"></div>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="pw-wrap">
+            <input class="input" id="password" name="password" type="password" autocomplete="new-password" maxlength="72" placeholder="Minimal 6 karakter" required>
+            <button class="pw-toggle" type="button" data-target="password" aria-label="Tampilkan password"><img src="assets/icons/eye.svg" alt="" width="18" height="18"></button>
+          </div>
+          <div class="strength" id="strength" data-level="0"><span></span></div>
+          <div class="hint" id="strengthText">Gunakan minimal 6 karakter.</div>
+          <div class="field-error" id="passwordError"></div>
+        </div>
+        <div class="field">
+          <label for="confirm">Konfirmasi Password</label>
+          <div class="pw-wrap">
+            <input class="input" id="confirm" name="confirm" type="password" autocomplete="new-password" maxlength="72" placeholder="Ulangi password" required>
+            <button class="pw-toggle" type="button" data-target="confirm" aria-label="Tampilkan password"><img src="assets/icons/eye.svg" alt="" width="18" height="18"></button>
+          </div>
+          <div class="field-error" id="confirmError"></div>
+        </div>
+        <div class="form-actions" style="margin-top:18px">
+          <button class="btn btn-lg btn-gold btn-block" type="submit" id="registerBtn">Buat Akun</button>
+        </div>
+      </form>
+
+      <p class="auth-switch">Sudah punya akun? <a href="login.html">Masuk di sini</a></p>
+      <p class="auth-terms">Dengan mendaftar, akun dan progres disimpan lokal di browser ini. <a href="index.html">Kembali ke Home</a></p>
+    </div>
+  </main>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/portal.js"></script>
+<script src="js/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+@font-face{font-family:"VT323";src:url("../assets/fonts/vt323/VT323-Regular.ttf")}
+@font-face{font-family:"KPS";src:url("../assets/fonts/kenney-pixel-square/Kenney-Pixel-Square.ttf")}
+:root{--bg:#0d1117;--deep:#080b10;--panel:#1a2332;--panel2:#141c29;--edge:#2c3a52;--line:#2c3a52;--gold:#ffd34a;--gold-d:#c79a1c;--green:#5aa88c;--red:#e04040;--text:#f2f2f2;--muted:#8b949e;--glow-gold:rgba(255,211,74,.3)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font:22px/1.3 "VT323",monospace}
+img,.sp,canvas{image-rendering:pixelated}
+a{color:var(--gold)}
+h1,h2,h3,h4{margin:.2em 0;font-family:"KPS","VT323",monospace;font-weight:400}
+::selection{background:var(--gold);color:var(--bg)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.muted{color:var(--muted)}
+[hidden]{display:none!important}
+/* panel bergaya RPG: sudut kotak, bingkai hitam + garis dalam */
+.card,.panel{background:var(--panel);border:3px solid #000;box-shadow:inset 0 0 0 2px var(--edge),0 4px 0 #000;padding:18px}
+.btn{display:inline-block;background:var(--gold);color:var(--bg);border:3px solid #000;box-shadow:inset 0 -4px 0 var(--gold-d),0 3px 0 #000;padding:6px 20px;font:inherit;text-decoration:none;cursor:pointer;transition:transform .12s,filter .12s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.1)}
+.btn:active{transform:translateY(2px);box-shadow:inset 0 -2px 0 var(--gold-d),0 1px 0 #000}
+.btn.small{padding:2px 14px}
+.btn.ghost{background:var(--panel);color:var(--text);box-shadow:inset 0 0 0 2px var(--edge),0 3px 0 #000}
+.btn.green{background:var(--green);box-shadow:inset 0 -4px 0 #3d7a62,0 3px 0 #000}
+.btn.red{background:var(--red);color:#fff;box-shadow:inset 0 -4px 0 #a02828,0 3px 0 #000}
+.btn.big{font-size:28px;padding:10px 30px}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;filter:none}
+.alert{padding:8px 12px;border:3px solid;margin:8px 0}
+.alert.success{background:#16382a;border-color:#4fd37a}.alert.error{background:#4a1a1a;border-color:var(--red)}
+kbd{background:var(--deep);border:2px solid var(--edge);border-bottom-width:4px;padding:0 8px}
+footer{text-align:center;color:var(--muted);padding:24px}
+table{width:100%;border-collapse:collapse}
+th,td{text-align:left;padding:6px 10px;border-bottom:2px solid var(--edge)}
+th{color:var(--gold);font-size:20px;font-weight:400}
+td.empty{text-align:center;color:var(--muted);padding:22px}
+/* navbar halaman publik */
+.brand{display:inline-flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font:22px "KPS",monospace}
+.brand img{width:32px;height:32px}
+.brand:hover{color:var(--gold)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 24px;background:var(--deep);border-bottom:3px solid #000;box-shadow:0 2px 0 var(--edge);position:sticky;top:0;z-index:100}
+.nav nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.nav nav a:not(.btn){text-decoration:none;color:var(--text)}
+.nav nav a:not(.btn):hover{color:var(--gold)}
+/* sprite animasi dari sprite sheet asli: --w/--h frame, --n jumlah frame, --s skala, --img sheet */
+.spw{display:inline-block;width:calc(var(--w)*var(--s)*1px);height:calc(var(--h)*var(--s)*1px)}
+.sp{display:block;width:calc(var(--w)*1px);height:calc(var(--h)*1px);background:var(--img) 0 0 no-repeat;transform-origin:0 0;transform:scale(var(--s));animation:sp .7s steps(var(--n)) infinite}
+@keyframes sp{to{background-position-x:calc(var(--w)*var(--n)*-1px)}}
+/* shell aplikasi (Dashboard, Inventory, Toko, dst.) */
+.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+.side{background:var(--deep);border-right:3px solid #000;box-shadow:2px 0 0 var(--edge);position:sticky;top:0;height:100vh;padding:16px 12px;display:flex;flex-direction:column;gap:4px;z-index:50;overflow-y:auto}
+.side .brand{padding:4px 8px 14px;border-bottom:2px solid var(--edge);margin-bottom:10px}
+.side a,.side button.nl{display:flex;align-items:center;gap:12px;padding:6px 10px;color:var(--text);text-decoration:none;background:none;border:3px solid transparent;font:inherit;text-align:left;cursor:pointer;width:100%}
+.side a img,.side button.nl img{width:24px;height:24px;object-fit:contain;flex:none}
+.side a:hover,.side button.nl:hover{background:var(--panel);border-color:var(--edge)}
+.side a.on{background:var(--panel);border-color:var(--gold);color:var(--gold)}
+.side .push{margin-top:auto}
+.side .me{padding:8px 10px;color:var(--muted);border-top:2px solid var(--edge);margin-top:8px}
+.side .me b{color:var(--gold)}
+.mbar{display:none}
+.content{padding:24px;min-width:0;display:grid;gap:18px;align-content:start;max-width:1100px;width:100%}
+.pagehead{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.pagehead h1{font-size:28px;color:var(--gold);margin:0}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--deep);border:3px solid #000;box-shadow:inset 0 0 0 2px var(--edge);padding:2px 12px;color:var(--gold);font-size:26px}
+.chip img{width:18px;height:18px}
+@media(max-width:860px){
+  .app{grid-template-columns:1fr}
+  .side{position:fixed;left:0;top:0;width:260px;transform:translateX(-105%);transition:transform .2s}
+  .side.open{transform:none}
+  .mbar{display:flex;align-items:center;justify-content:space-between;padding:8px 14px;background:var(--deep);border-bottom:3px solid #000;position:sticky;top:0;z-index:40}
+  .content{padding:14px}
+  .nav{padding:8px 14px}.nav nav{gap:12px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition:none!important}}

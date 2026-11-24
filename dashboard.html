@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — Legend of Lua</title>
+<meta name="description" content="Dashboard pemain Legend of Lua: profil, statistik, karakter, inventory, toko, leaderboard, dan pengaturan.">
+<link rel="icon" href="assets/sprites/icon.png">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="portal page-enter dashboard-page">
+<div class="app">
+  <aside class="side" id="sidebar" aria-label="Navigasi dashboard">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/sprites/icon.png" alt=""></span>
+      <span class="brand-text"><b>LEGEND OF LUA</b><small>PLAYER HUB</small></span>
+    </a>
+    <span class="side-label">Menu</span>
+    <nav style="display:grid;gap:2px">
+      <a class="nav-item on" href="#dashboard" data-view="dashboard"><img src="assets/icons/dashboard.svg" alt=""> Dashboard</a>
+      <a class="nav-item" href="game.html"><img src="assets/icons/play.svg" alt=""> Play Game</a>
+      <a class="nav-item" href="#character" data-view="character"><img src="assets/icons/character.svg" alt=""> Character</a>
+      <a class="nav-item" href="#inventory" data-view="inventory"><img src="assets/icons/inventory.svg" alt=""> Inventory</a>
+      <a class="nav-item" href="#shop" data-view="shop"><img src="assets/icons/shop.svg" alt=""> Shop</a>
+      <a class="nav-item" href="#leaderboard" data-view="leaderboard"><img src="assets/icons/leaderboard.svg" alt=""> Leaderboard</a>
+      <a class="nav-item" href="#settings" data-view="settings"><img src="assets/icons/settings.svg" alt=""> Settings</a>
+      <button class="nav-item logout" type="button" id="logoutBtn"><img src="assets/icons/logout.svg" alt=""> Logout</button>
+    </nav>
+    <div class="side-profile">
+      <div class="who">
+        <span class="avatar"><img src="assets/icons/user.svg" alt=""></span>
+        <span style="min-width:0"><b data-auth-name>Player</b><small data-side-char>Kesatria</small></span>
+      </div>
+      <div class="gold-line"><img src="assets/sprites/items/coinIcon.png" alt=""> <span data-side-gold>0</span> emas</div>
+    </div>
+  </aside>
+  <div class="side-backdrop" id="sideBackdrop"></div>
+
+  <div class="main">
+    <div class="mbar">
+      <button class="icon-btn side-toggle" type="button" aria-label="Buka menu" aria-expanded="false"><img src="assets/icons/menu.svg" alt=""></button>
+      <a class="mbar-brand" href="index.html"><img src="assets/sprites/icon.png" alt=""> LEGEND OF LUA</a>
+      <div class="mbar-actions">
+        <span class="chip"><img src="assets/sprites/items/coinIcon.png" alt=""><span data-side-gold>0</span></span>
+      </div>
+    </div>
+
+    <main class="content">
+      <div class="pagehead">
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+          <p class="page-sub" id="pageSub">Selamat datang kembali, pahlawan.</p>
+        </div>
+        <div class="pagehead-actions">
+          <span class="chip" title="Emas saat ini"><img src="assets/sprites/items/coinIcon.png" alt=""><b id="headGold">0</b></span>
+          <a class="btn btn-sm btn-gold" href="game.html"><img src="assets/icons/play.svg" alt="" width="16" height="16"> Play Game</a>
+        </div>
+      </div>
+
+      <!-- ================= OVERVIEW ================= -->
+      <section class="dash-view active" id="view-dashboard">
+        <div class="dash-grid">
+          <section class="panel profile-panel span-4">
+            <div class="profile-top">
+              <div class="avatar-frame"><canvas id="profileCanvas" width="116" height="136" aria-label="Karakter pemain"></canvas></div>
+              <div style="min-width:0">
+                <h2 class="profile-name" data-username>Player</h2>
+                <div class="profile-class"><img src="assets/icons/character.svg" alt=""><span data-char-name>Kesatria</span></div>
+                <div class="profile-tags">
+                  <span class="tag gold" data-level-tag>Level 1</span>
+                  <span class="tag green" data-progress-tag>1 / 3 wilayah</span>
+                </div>
+              </div>
+            </div>
+            <div class="profile-level">
+              <div class="lvl-head"><span>Progres petualangan</span><b data-progress-label>1 / 3</b></div>
+              <div class="xp-bar"><span data-progress-bar style="width:33%"></span></div>
+            </div>
+            <div class="profile-gold">
+              <span class="amt"><img src="assets/sprites/items/coinIcon.png" alt=""><span data-gold>0</span></span>
+              <span class="tag">Emas</span>
+            </div>
+            <div class="profile-actions">
+              <a class="btn btn-sm btn-green" href="game.html"><img src="assets/icons/play.svg" alt="" width="14" height="14"> Main</a>
+              <a class="btn btn-sm btn-ghost" href="#character" data-view="character"><img src="assets/icons/character.svg" alt="" width="14" height="14"> Atur</a>
+            </div>
+          </section>
+
+          <section class="panel continue-panel span-8">
+            <div class="continue-banner" id="continueBanner">
+              <div class="continue-top">
+                <span class="tag gold" data-last-level-tag>Level 1</span>
+                <span class="tag green" data-last-status>Belum dimulai</span>
+              </div>
+              <h2 class="continue-title" data-last-level-name>Level 1: Padang Hijau</h2>
+              <p class="continue-desc" data-last-level-desc>Mulai petualangan pertamamu di padang rumput di tepi hutan tua.</p>
+              <div class="continue-meta">
+                <span class="tag"><img src="assets/icons/clock.svg" alt="" width="13" height="13"> <span data-last-time>—</span></span>
+                <span class="tag"><img src="assets/icons/skull.svg" alt="" width="13" height="13"> <span data-last-kills>0</span> musuh</span>
+                <span class="tag"><img src="assets/icons/trophy.svg" alt="" width="13" height="13"> <span data-best-time>—</span></span>
+              </div>
+              <div class="continue-actions">
+                <a class="btn btn-lg btn-gold" id="continuePlay" href="game.html?lv=1"><img src="assets/icons/play.svg" alt="" width="18" height="18"> Continue Adventure</a>
+                <a class="btn btn-ghost" href="#shop" data-view="shop">Buka Toko</a>
+              </div>
+            </div>
+            <div class="continue-foot">
+              <div class="level-chips" id="levelChips"></div>
+              <span class="muted" style="font-size:15px">Progres tersimpan otomatis</span>
+            </div>
+          </section>
+
+          <section class="panel stats-panel span-8">
+            <div class="panel-head" style="margin-bottom:0">
+              <div><h3 class="panel-title"><img src="assets/icons/leaderboard.svg" alt=""> Game statistics</h3><p class="panel-sub">Data asli dari permainan yang tersimpan di akun ini.</p></div>
+              <span class="tag">Local Storage</span>
+            </div>
+            <div class="dash-stats">
+              <div class="dash-stat"><img class="ico" src="assets/icons/trophy.svg" alt=""><span class="k">Highest score</span><span class="v gold" id="statHighScore">0</span></div>
+              <div class="dash-stat"><img class="ico" src="assets/icons/play.svg" alt=""><span class="k">Games played</span><span class="v" id="statPlays">0</span></div>
+              <div class="dash-stat"><img class="ico" src="assets/icons/check.svg" alt=""><span class="k">Total wins</span><span class="v green" id="statWins">0</span></div>
+              <div class="dash-stat"><img class="ico" src="assets/icons/skull.svg" alt=""><span class="k">Enemies defeated</span><span class="v" id="statKills">0</span></div>
+              <div class="dash-stat"><img class="ico" src="assets/icons/clock.svg" alt=""><span class="k">Best time</span><span class="v" id="statBestTime">—</span></div>
+            </div>
+          </section>
+
+          <section class="panel character-panel span-4">
+            <div class="panel-head" style="margin-bottom:0">
+              <h3 class="panel-title"><img src="assets/icons/character.svg" alt=""> Character</h3>
+              <a class="tag gold" href="#character" data-view="character">Atur</a>
+            </div>
+            <div class="char-mini-stage"><canvas id="charMiniCanvas" width="160" height="190" aria-label="Pratinjau karakter"></canvas></div>
+            <div class="equipped-list" id="equippedList"></div>
+            <div class="char-mini-actions">
+              <a class="btn btn-sm btn-ghost" href="#character" data-view="character">Customize</a>
+              <a class="btn btn-sm btn-gold" href="#shop" data-view="shop">Shop</a>
+            </div>
+          </section>
+
+          <section class="panel activity-panel span-12">
+            <div class="panel-head" style="margin-bottom:4px">
+              <div><h3 class="panel-title"><img src="assets/icons/clock.svg" alt=""> Recent activity</h3><p class="panel-sub">10 petualangan terakhir di akun ini.</p></div>
+              <span class="tag" id="activityCount">0 riwayat</span>
+            </div>
+            <div class="table-wrap">
+              <table class="activity-table">
+                <thead><tr><th>Tanggal</th><th>Level</th><th>Hasil</th><th>Skor</th><th>Musuh</th><th>Waktu</th><th>Emas</th></tr></thead>
+                <tbody id="activityBody"></tbody>
+              </table>
+            </div>
+            <div class="activity-empty" id="activityEmpty">Belum ada riwayat. Mulai petualangan pertamamu untuk mengisi catatan ini.</div>
+          </section>
+        </div>
+      </section>
+
+      <!-- ================= CHARACTER ================= -->
+      <section class="dash-view" id="view-character">
+        <div class="char-layout">
+          <div class="panel char-preview-panel">
+            <div class="char-stage-big"><canvas id="charCanvas" width="300" height="360" aria-label="Pratinjau karakter besar"></canvas></div>
+            <div class="char-preview-name">
+              <h2 id="charPreviewName">Kesatria</h2>
+              <p id="charPreviewDesc">Seimbang (gratis)</p>
+            </div>
+            <div class="char-summary">
+              <div class="row"><span>Bonus</span><b id="sumBonus">Seimbang</b></div>
+              <div class="row"><span>Kecepatan</span><b id="sumSpeed">100%</b></div>
+              <div class="row"><span>Damage</span><b id="sumDamage">100%</b></div>
+              <div class="row"><span>Hati maksimal</span><b id="sumHearts">4</b></div>
+              <div class="row"><span>Pet aktif</span><b id="sumPet">Tidak ada</b></div>
+            </div>
+            <a class="btn btn-green btn-block" href="game.html"><img src="assets/icons/play.svg" alt="" width="16" height="16"> Main dengan karakter ini</a>
+          </div>
+
+          <div class="char-options">
+            <section class="panel option-section">
+              <h3><img src="assets/icons/character.svg" alt=""> Pilih karakter</h3>
+              <p class="hint">Karakter yang belum dimiliki bisa dibeli di Shop. Bonus berlaku langsung di game.</p>
+              <div class="char-choice-grid" id="charChoices"></div>
+            </section>
+
+            <section class="panel option-section">
+              <h3><img src="assets/icons/star.svg" alt=""> Kosmetik</h3>
+              <div class="cosmetic-tabs" id="cosmeticTabs">
+                <button type="button" data-slot="hat" class="on">Kepala</button>
+                <button type="button" data-slot="face">Wajah</button>
+                <button type="button" data-slot="neck">Leher</button>
+              </div>
+              <div class="cosmetic-grid" id="cosmeticGrid"></div>
+            </section>
+
+            <section class="panel option-section">
+              <h3><img src="assets/icons/pet.svg" alt=""> Pet collection</h3>
+              <p class="hint">Pet mengikuti pemain dan menarik loot di dalam game.</p>
+              <div class="pet-grid" id="petGrid"></div>
+            </section>
+
+            <section class="panel option-section">
+              <h3><img src="assets/icons/settings.svg" alt=""> Warna & hue</h3>
+              <p class="hint">Hue memberi variasi warna pada sprite karakter dan pet. Warna aksesoris berlaku untuk item yang sedang dipakai.</p>
+              <label class="field-label" for="hueSlider">Hue karakter</label>
+              <div class="hue-row"><input type="range" id="hueSlider" min="0" max="360" step="1" value="0"><output id="hueValue">0°</output></div>
+              <label class="field-label" for="petHueSlider">Hue pet</label>
+              <div class="hue-row"><input type="range" id="petHueSlider" min="0" max="360" step="1" value="0"><output id="petHueValue">0°</output></div>
+              <label class="field-label" for="accColor">Warna aksesoris</label>
+              <div class="color-row">
+                <select class="select" id="colorTarget" style="max-width:220px;font-size:17px;padding:6px 8px"></select>
+                <input type="color" id="accColor" value="#ffd34a">
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INVENTORY ================= -->
+      <section class="dash-view" id="view-inventory">
+        <div class="panel">
+          <div class="panel-head">
+            <div><h3 class="panel-title"><img src="assets/icons/inventory.svg" alt=""> Inventory</h3><p class="panel-sub">Semua yang benar-benar dimiliki akun ini.</p></div>
+            <span class="chip"><img src="assets/sprites/items/coinIcon.png" alt=""><b id="invGold">0</b></span>
+          </div>
+          <div class="inv-summary">
+            <div class="stat-card"><span class="k">Upgrade permanen</span><span class="v gold" id="invUpgrades">0</span></div>
+            <div class="stat-card"><span class="k">Ramuan siap pakai</span><span class="v green" id="invBuffs">0</span></div>
+            <div class="stat-card"><span class="k">Kosmetik</span><span class="v" id="invCosmetics">0</span></div>
+            <div class="stat-card"><span class="k">Pet & karakter</span><span class="v" id="invPets">0</span></div>
+          </div>
+          <div class="inv-tabs" id="invTabs">
+            <button type="button" data-inv="all" class="on">Semua</button>
+            <button type="button" data-inv="upgrade">Upgrade</button>
+            <button type="button" data-inv="buff">Ramuan</button>
+            <button type="button" data-inv="cosmetic">Kosmetik</button>
+            <button type="button" data-inv="pet">Pet</button>
+            <button type="button" data-inv="character">Karakter</button>
+          </div>
+          <div class="inv-grid" id="invGrid"></div>
+        </div>
+      </section>
+
+      <!-- ================= SHOP ================= -->
+      <section class="dash-view" id="view-shop">
+        <div class="panel">
+          <div class="shop-head">
+            <div><h3 class="panel-title"><img src="assets/icons/shop.svg" alt=""> Shop</h3><p class="panel-sub">Belanja dengan emas hasil petualangan. Harga dan efek sama dengan data game.</p></div>
+            <div class="shop-balance"><img src="assets/sprites/items/coinIcon.png" alt=""> <span id="shopGold">0</span></div>
+          </div>
+          <div class="shop-tabs" id="shopTabs" style="margin-top:14px">
+            <button type="button" data-shop="character" class="on">Karakter</button>
+            <button type="button" data-shop="cosmetic">Kosmetik</button>
+            <button type="button" data-shop="pet">Pet</button>
+            <button type="button" data-shop="upgrade">Upgrade</button>
+            <button type="button" data-shop="buff">Ramuan</button>
+          </div>
+          <div class="shop-grid" id="shopGrid"></div>
+          <p class="shop-note">Ramuan otomatis dipakai saat petualangan berikutnya dimulai. Upgrade permanen langsung aktif setelah dibeli.</p>
+        </div>
+      </section>
+
+      <!-- ================= LEADERBOARD ================= -->
+      <section class="dash-view" id="view-leaderboard">
+        <div class="panel">
+          <div class="panel-head">
+            <div><h3 class="panel-title"><img src="assets/icons/leaderboard.svg" alt=""> Leaderboard</h3><p class="panel-sub">Peringkat semua akun yang terdaftar di browser ini, diurutkan dari skor tertinggi.</p></div>
+            <span class="tag gold">Hall of fame</span>
+          </div>
+          <div class="podium" id="podium"></div>
+          <div class="table-wrap">
+            <table class="lb-table">
+              <thead><tr><th>Rank</th><th>Player</th><th>High score</th><th>Wins</th><th>Enemies</th><th>Games</th></tr></thead>
+              <tbody id="lbBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-state hidden" id="lbEmpty"><h3>Belum ada skor</h3><p>Mainkan game untuk mengisi leaderboard.</p></div>
+        </div>
+      </section>
+
+      <!-- ================= SETTINGS ================= -->
+      <section class="dash-view" id="view-settings">
+        <div class="settings-grid">
+          <section class="panel settings-card">
+            <h3><img src="assets/icons/user.svg" alt=""> Akun</h3>
+            <div class="account-line"><span>Username</span><b id="setUsername">—</b></div>
+            <div class="account-line"><span>Terdaftar</span><b id="setCreated">—</b></div>
+            <div class="account-line"><span>Karakter aktif</span><b id="setChar">—</b></div>
+            <div class="settings-row">
+              <div><div class="label">Suara game</div><div class="desc">Efek suara pedang, koin, dan musuh.</div></div>
+              <label class="toggle"><input type="checkbox" id="soundToggle"><span></span></label>
+            </div>
+            <button class="btn btn-ghost" type="button" id="logoutBtn2"><img src="assets/icons/logout.svg" alt="" width="16" height="16"> Logout dari akun</button>
+          </section>
+
+          <section class="panel settings-card">
+            <h3><img src="assets/icons/lock.svg" alt=""> Ganti password</h3>
+            <div id="passwordAlert" aria-live="polite"></div>
+            <form id="passwordForm" novalidate>
+              <div class="field"><label for="currentPassword">Password lama</label><input class="input" id="currentPassword" type="password" autocomplete="current-password" required></div>
+              <div class="field"><label for="newPassword">Password baru</label><input class="input" id="newPassword" type="password" autocomplete="new-password" required><div class="hint">Minimal 6 karakter.</div></div>
+              <div class="field"><label for="confirmPassword">Konfirmasi password baru</label><input class="input" id="confirmPassword" type="password" autocomplete="new-password" required></div>
+              <button class="btn btn-gold" type="submit" id="passwordBtn">Simpan password</button>
+            </form>
+          </section>
+
+          <section class="panel settings-card" style="grid-column:1/-1">
+            <h3><img src="assets/icons/save.svg" alt=""> Data permainan</h3>
+            <p class="muted" style="margin:0">Semua data game disimpan di Local Storage browser ini. Logout tidak menghapus akun, emas, inventory, atau progres.</p>
+            <div class="danger-zone">
+              <h4>Reset semua data permainan</h4>
+              <p>Menghapus skor, riwayat, emas, upgrade, kosmetik, pet, dan progres level. Akun tetap ada. Tindakan ini tidak bisa dibatalkan.</p>
+              <div><button class="btn btn-red" type="button" id="resetData">Reset data permainan</button></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cosmetics.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/game-data.js"></script>
+<script src="js/portal.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

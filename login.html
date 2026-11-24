@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login — Legend of Lua</title>
+<meta name="description" content="Masuk ke portal Legend of Lua dan lanjutkan petualanganmu.">
+<link rel="icon" href="assets/sprites/icon.png">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="portal page-enter auth-page login">
+<div class="auth-shell">
+  <aside class="auth-art" aria-label="Ilustrasi dunia Legend of Lua">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/sprites/icon.png" alt=""></span>
+      <span class="brand-text"><b>LEGEND OF LUA</b><small>PIXEL ADVENTURE</small></span>
+    </a>
+    <div class="auth-quote">
+      <span class="eyebrow">Gerbang petualangan</span>
+      <h2>Kembali ke <span>Lua</span>.</h2>
+      <p>Hutan menunggumu. Lanjutkan perjalanan dari level terakhir, bawa emas dan perlengkapanmu, lalu hadapi Raja Tengkorak.</p>
+      <ul class="auth-benefits">
+        <li><img src="assets/icons/save.svg" alt=""> Progres tersimpan per akun</li>
+        <li><img src="assets/icons/character.svg" alt=""> Karakter, pet, dan kosmetik tersimpan</li>
+        <li><img src="assets/icons/leaderboard.svg" alt=""> Skor dan riwayat pertualangan</li>
+      </ul>
+    </div>
+    <div class="auth-art-foot">
+      <span>© <span data-year>2026</span> Legend of Lua</span>
+      <span class="tag">Local Storage</span>
+    </div>
+    <div class="auth-float bat"><span class="sprite-wrap" style="--scale:3"><span class="sprite spr-bat"></span></span></div>
+    <div class="auth-float eye"><span class="sprite-wrap" style="--scale:3"><span class="sprite spr-eye"></span></span></div>
+    <div class="auth-float player"><span class="sprite-wrap" style="--scale:6"><span class="sprite spr-player spr-char5 anim-idle"></span></span></div>
+    <div class="auth-float pet"><span class="sprite-wrap" style="--scale:2"><span class="sprite spr-pet spr-pet-slime"></span></span></div>
+    <i class="firefly" style="left:20%;top:44%;animation-delay:-1s"></i>
+    <i class="firefly" style="left:68%;top:30%;animation-delay:-3s"></i>
+    <i class="firefly" style="left:78%;top:62%;animation-delay:-4s"></i>
+  </aside>
+
+  <main class="auth-main">
+    <div class="auth-card">
+      <div class="auth-mobile-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"><img src="assets/sprites/icon.png" alt=""></span>
+          <span class="brand-text"><b>LEGEND OF LUA</b><small>PIXEL ADVENTURE</small></span>
+        </a>
+      </div>
+      <span class="eyebrow">Login</span>
+      <h1>Masuk ke akunmu</h1>
+      <p class="sub">Gunakan username dan password yang kamu daftarkan.</p>
+
+      <div class="auth-hint-box"><img src="assets/icons/lock.svg" alt=""><span>Akun dan progres disimpan di Local Storage browser ini. Tidak dikirim ke server.</span></div>
+      <div id="loginAlert" class="auth-error-summary" aria-live="polite"></div>
+
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="username">Username</label>
+          <input class="input" id="username" name="username" type="text" autocomplete="username" maxlength="16" placeholder="Nama pahlawanmu" required>
+          <div class="field-error" id="usernameError"></div>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="pw-wrap">
+            <input class="input" id="password" name="password" type="password" autocomplete="current-password" maxlength="72" placeholder="••••••••" required>
+            <button class="pw-toggle" type="button" data-target="password" aria-label="Tampilkan password"><img src="assets/icons/eye.svg" alt="" width="18" height="18"></button>
+          </div>
+          <div class="field-error" id="passwordError"></div>
+        </div>
+        <label class="check" for="remember"><input type="checkbox" id="remember" name="remember"> Ingat saya di perangkat ini</label>
+        <div class="form-actions" style="margin-top:18px">
+          <button class="btn btn-lg btn-gold btn-block" type="submit" id="loginBtn">Masuk</button>
+        </div>
+      </form>
+
+      <p class="auth-switch">Belum punya akun? <a href="register.html">Daftar sekarang</a></p>
+      <p class="auth-terms"><a href="index.html">← Kembali ke Home</a></p>
+    </div>
+  </main>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/portal.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

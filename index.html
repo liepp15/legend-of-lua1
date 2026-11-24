@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Legend of Lua — Portal Petualangan RPG Pixel</title>
+<meta name="description" content="Masuki dunia Legend of Lua. Portal game RPG pixel bertema hutan dan dungeon: 3 level, 4 karakter, pet, kosmetik, toko, dan petualangan yang tersimpan di browser.">
+<link rel="icon" href="assets/sprites/icon.png">
+<link rel="preload" href="assets/fonts/vt323/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/kenney-pixel-square/Kenney-Pixel-Square.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body class="portal page-enter">
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Legend of Lua — Home">
+      <span class="brand-mark"><img src="assets/sprites/icon.png" alt=""></span>
+      <span class="brand-text"><b>LEGEND OF LUA</b><small>PIXEL ADVENTURE</small></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false"><img src="assets/icons/menu.svg" alt=""></button>
+    <nav class="nav-links" aria-label="Navigasi utama">
+      <a class="nav-link on" href="index.html" data-nav="index.html">Home</a>
+      <a class="nav-link" href="#about">About</a>
+      <a class="nav-link" href="#features">Features</a>
+      <div class="nav-auth" data-auth-links></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="hero-kicker"><span class="dot"></span> A dark pixel fantasy adventure</span>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="line">LEGEND</span>
+          <span class="line gold-line">OF LUA</span>
+        </h1>
+        <p class="hero-desc">
+          Tiga wilayah. Satu raja tengkorak. Jelajahi <b>Padang Hijau</b>, tembus <b>Lembah Senja</b>,
+          dan rebut kembali cahaya <b>Lua</b> dari Gua Raja Tengkorak. Setiap pedang, panah, dan bom
+          terasa seperti petualangan RPG klasik.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-lg btn-gold" id="heroPlay" href="login.html">Play Now</a>
+          <a class="btn btn-lg btn-ghost" id="heroCreate" href="register.html">Create Account</a>
+        </div>
+        <ul class="hero-meta">
+          <li><img src="assets/icons/check.svg" alt=""> 3 level + boss</li>
+          <li><img src="assets/icons/check.svg" alt=""> 4 karakter unik</li>
+          <li><img src="assets/icons/check.svg" alt=""> Progres tersimpan otomatis</li>
+        </ul>
+        <p class="hero-note"><img src="assets/icons/lock.svg" alt=""> Akun lokal di browser — tanpa server, tanpa instalasi.</p>
+      </div>
+
+      <div class="hero-art">
+        <div class="world-window" role="img" aria-label="Ilustrasi dunia Legend of Lua dengan karakter kesatria, kelelawar, mata terbang, dan tengkorak">
+          <div class="world-label"><img src="assets/icons/map.svg" alt=""> Level 1 · Padang Hijau</div>
+          <div class="world-status"><i></i> LIVE WORLD</div>
+
+          <img class="scene-tree t1" src="assets/sprites/environment/tree.png" alt="">
+          <img class="scene-tree t2" src="assets/sprites/environment/tree.png" alt="">
+
+          <div class="scene-sprite scene-player">
+            <span class="sprite-wrap" style="--scale:8"><span class="sprite spr-player spr-char5 anim-idle"></span></span>
+          </div>
+          <div class="scene-sprite scene-bat">
+            <span class="sprite-wrap" style="--scale:3"><span class="sprite spr-bat"></span></span>
+          </div>
+          <div class="scene-sprite scene-eye">
+            <span class="sprite-wrap" style="--scale:3"><span class="sprite spr-eye"></span></span>
+          </div>
+          <div class="scene-sprite scene-skel">
+            <span class="sprite-wrap" style="--scale:3"><span class="sprite spr-skel"></span></span>
+          </div>
+          <div class="scene-ground"></div>
+
+          <i class="firefly" style="left:18%;top:48%;animation-delay:-1s"></i>
+          <i class="firefly" style="left:63%;top:34%;animation-delay:-3s"></i>
+          <i class="firefly" style="left:78%;top:58%;animation-delay:-4.5s"></i>
+
+          <div class="world-bottom">
+            <span>HP <span class="hearts"><img src="assets/sprites/ui/heart.png" alt=""><img src="assets/sprites/ui/heart.png" alt=""><img src="assets/sprites/ui/heart.png" alt=""><img src="assets/sprites/ui/heart.png" alt=""></span></span>
+            <span>Emas <b>0</b></span>
+            <span>Rekor <b>0</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="hero-scroll">Scroll untuk menjelajah</span>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy reveal">
+        <span class="eyebrow">Tentang dunia</span>
+        <h2 class="section-title">Cahaya <span class="accent">Lua</span> telah padam.</h2>
+        <p class="lead">Hutan tua menyimpan jalan menuju tiga wilayah yang kini dikuasai kegelapan.</p>
+        <p>
+          Legend of Lua adalah petualangan action-RPG pixel yang dimainkan langsung di browser.
+          Mulai dari padang rumput yang tenang, turun ke lembah berkabut, lalu masuk ke gua
+          tempat Raja Tengkorak menanti. Kumpulkan poin, temukan peti, beli upgrade, dan
+          bentuk karaktermu dengan kosmetik serta pet.
+        </p>
+        <ul class="about-points">
+          <li><img src="assets/icons/sword-up.svg" alt=""><span><b>Bertarung dengan pedang, busur, bom, boomerang, dan api.</b> Auto-aim membantu, mouse tetap mengarahkan.</span></li>
+          <li><img src="assets/icons/chest.svg" alt=""><span><b>Setiap peti dan musuh memberi harta.</b> Emas dipakai untuk upgrade permanen dan kosmetik.</span></li>
+          <li><img src="assets/icons/save.svg" alt=""><span><b>Progres per akun tersimpan di Local Storage.</b> Tutup browser, buka lagi, lanjutkan petualangan.</span></li>
+        </ul>
+        <div class="about-stats">
+          <div class="about-stat"><b>3</b><span>Wilayah</span></div>
+          <div class="about-stat"><b>4</b><span>Karakter</span></div>
+          <div class="about-stat"><b>1</b><span>Boss akhir</span></div>
+        </div>
+      </div>
+
+      <div class="panel reveal" aria-label="Daftar level">
+        <div class="panel-head">
+          <h3 class="panel-title"><img src="assets/icons/map.svg" alt=""> Peta perjalanan</h3>
+          <span class="tag green">3 level</span>
+        </div>
+        <div class="level-list">
+          <div class="level-row">
+            <div class="level-thumb" style="background-image:url('assets/images/map-new1.png')"></div>
+            <div><h4>Level 1 · Padang Hijau</h4><p>Kumpulkan 70 poin untuk membuka lembah.</p></div>
+            <span class="tag gold">Mulai</span>
+          </div>
+          <div class="level-row">
+            <div class="level-thumb" style="background-image:url('assets/images/map-new2.png')"></div>
+            <div><h4>Level 2 · Lembah Senja</h4><p>Capai 160 poin di bawah cahaya senja.</p></div>
+            <span class="tag">Terbuka</span>
+          </div>
+          <div class="level-row">
+            <div class="level-thumb" style="background-image:url('assets/images/map-new3.png')"></div>
+            <div><h4>Level 3 · Gua Raja Tengkorak</h4><p>Kalahkan bos untuk menyelesaikan legenda.</p></div>
+            <span class="tag red">Boss</span>
+          </div>
+        </div>
+        <p class="muted" style="font-size:15px;margin:14px 0 0">Peta di atas dirender langsung dari data level game asli.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Fitur game</span>
+        <h2 class="section-title">Dibangun untuk <span class="accent">petualangan</span>.</h2>
+        <p class="section-sub">Semua fitur di portal terhubung ke data game yang sama. Tidak ada statistik palsu, tidak ada tombol hiasan.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="feature-icon"><img src="assets/icons/map.svg" alt=""></div>
+          <h3>Tiga level bertema</h3>
+          <p>Padang Hijau, Lembah Senja, dan Gua Raja Tengkorak — masing-masing punya musuh, tujuan, dan atmosfer sendiri.</p>
+          <span class="tag gold">Progres level</span>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon"><img src="assets/icons/sword-up.svg" alt=""></div>
+          <h3>Pertarungan lima senjata</h3>
+          <p>Pedang, busur, bom, boomerang, dan sihir api. Ganti item dengan Tab, gunakan klik kiri atau kanan.</p>
+          <span class="tag">Auto-aim</span>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon"><img src="assets/icons/character.svg" alt=""></div>
+          <h3>Empat karakter</h3>
+          <p>Kesatria seimbang, Rubah cepat, Ninja kuat, dan Robo dengan hati ekstra. Setiap karakter punya bonus nyata.</p>
+          <span class="tag green">Customization</span>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon"><img src="assets/icons/pet.svg" alt=""></div>
+          <h3>Pet & kosmetik</h3>
+          <p>Empat pet dengan magnet loot, topi, masker, syal, jubah, dan warna karakter. Semua tampil di dalam game.</p>
+          <span class="tag gold">Skin collection</span>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon"><img src="assets/icons/shop.svg" alt=""></div>
+          <h3>Toko & inventory</h3>
+          <p>Belanja upgrade permanen, ramuan sekali pakai, karakter, dan kosmetik. Inventory menampilkan semua yang benar-benar dimiliki.</p>
+          <span class="tag">Emas asli</span>
+        </article>
+        <article class="feature-card">
+          <div class="feature-icon"><img src="assets/icons/leaderboard.svg" alt=""></div>
+          <h3>Statistik & leaderboard</h3>
+          <p>Skor tertinggi, total main, kemenangan, musuh dikalahkan, waktu terbaik, dan riwayat 10 petualangan terakhir.</p>
+          <span class="tag green">Local Storage</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARACTERS -->
+  <section class="section" id="characters">
+    <div class="wrap">
+      <div class="section-head center">
+        <span class="eyebrow">Character showcase</span>
+        <h2 class="section-title">Pilih <span class="accent">pahlawanmu</span>.</h2>
+        <p class="section-sub">Sprite asli dari game. Bonus karakter langsung memengaruhi kecepatan, damage, dan jumlah hati.</p>
+      </div>
+      <div class="char-grid" id="charGrid">
+        <noscript><p class="muted">Aktifkan JavaScript untuk melihat karakter.</p></noscript>
+      </div>
+      <div class="center" style="margin-top:22px">
+        <a class="btn btn-ghost" href="register.html">Buat akun untuk membuka karakter</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO PLAY -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How to play</span>
+        <h2 class="section-title">Masuk, main, dan <span class="accent">bertahan</span>.</h2>
+        <p class="section-sub">Kontrol klasik keyboard + mouse. Game berjalan penuh di browser.</p>
+      </div>
+      <div class="how-grid">
+        <article class="how-card">
+          <span class="step-num">1</span>
+          <h3>Buat akun & login</h3>
+          <p>Daftar dengan username dan password. Sesi disimpan di Local Storage, progres terpisah untuk setiap pemain.</p>
+        </article>
+        <article class="how-card">
+          <span class="step-num">2</span>
+          <h3>Pilih karakter & perlengkapan</h3>
+          <p>Buka Dashboard, atur karakter, pet, dan kosmetik. Belanja upgrade di toko dengan emas hasil petualangan.</p>
+        </article>
+        <article class="how-card">
+          <span class="step-num">3</span>
+          <h3>Kalahkan Raja Tengkorak</h3>
+          <p>Kumpulkan poin di setiap level, hindari serangan, dan tumbangkan bos di Gua Raja Tengkorak untuk menyelesaikan legenda.</p>
+        </article>
+      </div>
+      <div class="controls-grid" aria-label="Kontrol permainan">
+        <div class="control"><kbd>WASD</kbd> / <kbd>↑↓←→</kbd> Gerak</div>
+        <div class="control"><kbd>Spasi</kbd> Roll</div>
+        <div class="control"><kbd>Klik</kbd> Serang / bidik</div>
+        <div class="control"><kbd>Shift</kbd> + klik Item api</div>
+        <div class="control"><kbd>Tab</kbd> / <kbd>E</kbd> Ganti item</div>
+        <div class="control"><kbd>C</kbd> Ganti jubah</div>
+        <div class="control"><kbd>T</kbd> Auto-aim on/off</div>
+        <div class="control"><kbd>Backspace</kbd> Layar penuh</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-sm">
+    <div class="wrap">
+      <div class="cta-panel">
+        <span class="eyebrow">Mulai sekarang</span>
+        <h2>Siap menyalakan kembali <span class="accent">Lua</span>?</h2>
+        <p>Buat akun gratis, pilih pahlawanmu, dan masuk ke gua. Progresmu tersimpan di browser ini.</p>
+        <div class="btn-row">
+          <a class="btn btn-lg btn-gold" id="ctaPlay" href="login.html">Play Now</a>
+          <a class="btn btn-lg btn-ghost" id="ctaCreate" href="register.html">Create Account</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"><img src="assets/sprites/icon.png" alt=""></span>
+          <span class="brand-text"><b>LEGEND OF LUA</b><small>PIXEL ADVENTURE</small></span>
+        </a>
+        <p>Portal game RPG pixel yang dibangun di atas game Legend of Lua asli. Semua sprite, peta, suara, dan mekanisme berasal dari game tersebut.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <a href="index.html">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#how">How to Play</a>
+      </div>
+      <div class="footer-col">
+        <h4>Akun</h4>
+        <a href="login.html">Login</a>
+        <a href="register.html">Register</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="game.html">Play Game</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Legend of Lua. Dibuat untuk Project 4 Individu X-RPL 2.</span>
+      <span class="tag">HTML5 · CSS3 · Vanilla JS · Local Storage</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cosmetics.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/portal.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

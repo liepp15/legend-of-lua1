@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play Game — Legend of Lua</title>
+<meta name="description" content="Mainkan Legend of Lua: jelajahi Padang Hijau, Lembah Senja, dan Gua Raja Tengkorak. Progres, emas, dan rekor tersimpan di akunmu.">
+<link rel="icon" href="assets/sprites/icon.png">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/game.css">
+</head>
+<body class="gamepage">
+
+<header class="topbar">
+  <div class="who">
+    <a class="brand" href="dashboard.html" title="Kembali ke dashboard" data-back>
+      <img src="assets/sprites/icon.png" alt="">
+      <span>LEGEND OF LUA</span>
+    </a>
+    <span class="player">
+      <img src="assets/icons/user.svg" alt="" width="16" height="16">
+      <span class="name" id="playerName">Player</span>
+      <span class="sep">•</span>
+      <span class="char" id="charName">Kesatria</span>
+    </span>
+  </div>
+
+  <div class="stat" aria-label="Status permainan">
+    <span title="Level saat ini"><img src="assets/icons/map.svg" alt="" width="15" height="15"> <b id="lvName">Level 1</b></span>
+    <span title="Emas di akun"><img src="assets/sprites/items/coinIcon.png" alt="" width="15" height="15"> <b id="gold">0</b></span>
+    <span title="Rekor skor"><img src="assets/icons/trophy.svg" alt="" width="15" height="15"> <b id="rec">0</b></span>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-sm btn-ghost" type="button" id="restartBtn" title="Mulai ulang level ini">
+      <img src="assets/icons/refresh.svg" alt="" width="14" height="14"> Restart
+    </button>
+    <button class="icon-btn" type="button" id="soundBtn" title="Nyalakan / matikan suara" aria-pressed="true" aria-label="Suara">
+      <img src="assets/icons/sound-on.svg" alt="" id="soundIcon">
+    </button>
+    <button class="icon-btn" type="button" id="fullBtn" title="Layar penuh (Backspace)" aria-label="Layar penuh">
+      <img src="assets/icons/fullscreen.svg" alt="">
+    </button>
+    <a class="btn btn-sm btn-gold" href="dashboard.html" id="backBtn" data-back>
+      <img src="assets/icons/dashboard.svg" alt="" width="14" height="14"> Dashboard
+    </a>
+  </div>
+</header>
+
+<div class="screen">
+  <canvas id="c" aria-label="Arena permainan Legend of Lua"></canvas>
+  <div id="load">Memuat dunia…</div>
+  <div class="game-note"><img src="assets/icons/info.svg" alt=""> Klik kiri = item kiri · Klik kanan = item kanan</div>
+</div>
+
+<div class="hint">
+  <kbd>WASD</kbd> gerak · <kbd>Spasi</kbd> roll · <kbd>Tab</kbd>/<kbd>E</kbd> ganti item · <kbd>Shift</kbd>+klik api ·
+  <kbd>T</kbd> auto-aim · <kbd>C</kbd> karakter · <kbd>Backspace</kbd> layar penuh · <kbd>Esc</kbd> tutup menu
+  <span class="touch">· Sentuh untuk mengarahkan & menyerang</span>
+</div>
+
+<div class="game-toast" id="gameToast" role="status" aria-live="polite"></div>
+
+<script src="js/storage.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cosmetics.js"></script>
+<script src="js/catalog.js"></script>
+<script src="js/game-data.js"></script>
+<script src="js/game-page.js"></script>
+<script src="js/manifest.js"></script>
+<script src="js/engine.js"></script>
+</body>
+</html>

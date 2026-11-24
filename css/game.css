@@ -1,0 +1,43 @@
+html,body{height:100%;overflow:hidden}
+body.gamepage{display:flex;flex-direction:column;background:var(--bg)}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:4px 12px;background:var(--deep);border-bottom:3px solid #000;box-shadow:0 2px 0 var(--edge);flex-wrap:wrap;position:relative;z-index:20}
+.who{display:flex;align-items:center;gap:14px;min-width:0}
+.topbar .brand{font-size:17px;gap:8px;white-space:nowrap}
+.topbar .brand img{width:24px;height:24px}
+.topbar .brand span{font-family:"KPS",monospace;letter-spacing:.04em}
+.who b,.stat b{color:var(--gold);font-weight:400}
+.who .player{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:17px;min-width:0}
+.who .player .name{color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px}
+.who .player .sep{color:var(--edge)}
+.who .player .char{color:var(--green)}
+.stat{display:flex;gap:16px;color:var(--muted);font-size:17px;flex-wrap:wrap}
+.stat span{display:inline-flex;align-items:center;gap:5px}
+.actions{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.actions .btn{font-size:17px;padding:2px 10px}
+.actions .icon-btn{width:34px;height:34px}
+.actions .icon-btn img{width:18px;height:18px}
+.screen{position:relative;flex:1;min-height:0;background:var(--bg)}
+.screen canvas{display:block;width:100%;height:100%;image-rendering:pixelated;cursor:crosshair}
+#load{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);font-size:32px;color:var(--gold);animation:loadPulse 1.5s ease-in-out infinite;z-index:10}
+@keyframes loadPulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.hint{padding:6px 12px;font-size:18px;background:rgba(0,0,0,0.7);color:var(--muted);text-align:center;border-top:2px solid var(--line)}
+.hint kbd{font-size:15px}
+.touch{display:none}@media(pointer:coarse){.touch{display:inline;color:var(--red)}}
+.game-toast{position:fixed;left:50%;bottom:46px;transform:translateX(-50%) translateY(10px);background:var(--panel);border:3px solid #000;box-shadow:inset 0 0 0 2px var(--edge),0 4px 0 #000;padding:5px 14px;color:var(--text);font-size:18px;z-index:30;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.game-toast.show{opacity:1;transform:translateX(-50%)}
+.game-note{position:absolute;right:10px;bottom:10px;z-index:5;display:flex;align-items:center;gap:6px;background:rgba(8,11,16,.72);border:2px solid #000;box-shadow:inset 0 0 0 2px var(--edge);padding:2px 8px;color:var(--muted);font-size:14px;pointer-events:none}
+.game-note img{width:13px;height:13px}
+@media(max-width:820px){
+  .topbar{padding:4px 8px;gap:6px}
+  .who .player{display:none}
+  .stat{gap:10px;font-size:15px}
+  .actions .btn{font-size:15px;padding:1px 8px}
+  .actions .icon-btn{width:30px;height:30px}
+  .hint{font-size:15px;padding:4px 8px}
+}
+@media(max-width:700px){
+  .stat{display:none}
+  .topbar .brand span{display:none}
+  .actions{gap:4px}
+  .game-note{display:none}
+}
